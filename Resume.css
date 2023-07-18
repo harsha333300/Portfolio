@@ -268,19 +268,20 @@ h1 {
     50% {
       border-color: transparent;
     }
-  }
+  }     
 .mini-cardd{
     min-width: 332px;
     min-height: 350px;
     box-shadow: -2rem 0 3rem -2rem #000;
-    border: 1px solid white;
     border-radius: 20px;
     background: linear-gradient(85deg,#434343,#262626);
     margin-left: -112px;
     transition: .2s;   
+    
 }
-.mini.card:hover{
-    transform: translate(-.5rem,-1rem) rotate(3deg);
+.mini-card{
+    display: flex;
+    padding-left: 116px;
 }
 .mini-cardd:hover{
     transform: translate(-.5rem,-1rem) rotate(3deg);
