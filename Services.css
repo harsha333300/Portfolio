@@ -1,0 +1,23 @@
+body{
+  background-color: #0f0f0f !important;;
+}
+.headingg{
+    font-size: 15vw;
+    text-align: center;
+    color: wheat;
+    opacity: 0.08;
+    font-family: Oswald, sans-serif !important;
+}
+p{
+    color: #fff;
+    font-family: Oswald, sans-serif !important;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0% 10%;
+    text-align: justify;
+}
+img{
+  width: 25px;
+  height: 25px;
+  margin-bottom: -5px;
+}

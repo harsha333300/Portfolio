@@ -1,0 +1,289 @@
+body {
+    background-color: #0f0f0f !important;
+    height: 100vh;
+}
+
+nav {
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+ul{
+    display: flex;
+}
+a {
+    color: #fff !important;
+}
+
+#align {
+    display: flex;
+    font-size: small;
+}
+.name{
+    font-size: 6rem;
+    font-family: Oswald, sans-serif;
+}
+
+ul {
+    padding: 4px;
+}
+
+
+.font-dec {
+    font-size: small;
+    color: #fff;
+    text-align: justify;
+}
+
+button {
+    border: 1px solid gray;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: end !important;
+}
+
+section {
+    color: #fff;
+}
+
+img {
+    width: 450px;
+    height: 530px;
+}
+
+.align {
+    display: flex;
+}
+
+.contact-bg-title {
+    font-size: 15vw;
+    opacity: 0.10;
+    text-align: center;
+    color: wheat;
+    font-family: Oswald, sans-serif;
+}
+
+.contact-text {
+    color: #fff;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+}
+
+.contact-content {
+    justify-content: space-evenly;
+    list-style: none;
+    font-family: Oswald, sans-serif;
+    color: wheat;
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.Linkedin {
+    font-size: 60px;
+    opacity: 0.075;
+    color: wheat;
+}
+
+.Whatsapp {
+    font-size: 60px;
+    opacity: 0.075;
+    color: wheat
+}
+.Email{
+    font-size: 60px;
+    opacity: 0.075;
+    color: wheat
+}
+.number{
+    font-size: 60px;
+    opacity: 0.075 ;
+    color: wheat;
+}
+a {
+    text-decoration: none !important;
+
+}
+
+.Linkedin:hover {
+    color: #fff;
+    opacity: 2;
+}
+
+.Whatsapp:hover {
+    color: #fff;
+    opacity: 2;
+}
+.Email:hover{
+    color: #fff;
+    opacity: 2;
+}
+.number:hover{
+    color: #fff ;
+    opacity: 2;
+}
+
+.btn-align {
+    background-color: #fd423d;
+    border: #ff8532;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px #fff;
+}
+.time-btn{
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px #fff;
+}
+
+button {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-size: small !important;
+}
+
+.headingg {
+    font-size: 15vw;
+    text-align: center;
+    color: wheat;
+    opacity: 0.08;
+    font-family: Oswald, sans-serif !important;
+}
+
+.paragraph {
+    color: #fff;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 0% 8%;
+    text-align: justify;
+}
+
+.services-logo {
+    width: 25px;
+    height: 25px;
+}
+.about-me{
+    text-align: end;
+    font-size: 15vw;
+    color: wheat;
+    opacity: 0.10;
+    font-family: Oswald,sans-serif;
+    line-height: 1;
+}
+.ab-me{
+    display: flex;
+    justify-content: left;
+    background-color: #131313;
+}
+.about-heading{
+    color: #fff;
+}
+img{
+    border-radius: 20px;
+}
+.find{
+    font-size: 20px;
+}
+.project-title{
+    font-size: 5vw;
+    opacity: 0.075;
+    color: wheat;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    margin-top: 4rem;
+    flex: 0 0 250px;
+    margin-right: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    transform: translateY(-10px);
+}
+
+.project-section{
+    background-color: #131313;
+    box-sizing: content-box;
+    display: flex;
+    margin: 0 0 var(--gap) 0;
+    position: relative;
+    height: 100%;
+    width: 261px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.project-image{
+    width: 261px ;
+    height: 200px;
+}
+.image-custom{
+    background-position: top;
+    background-size: cover;
+    border-radius: 50px;
+    transition: 2s ease-in-out;
+
+}
+.pro-image{
+    -webkit-animation: fadeOut .2s linear;
+    animation: fadeOut .2s linear;
+    background-color: wheat;
+    background-image: url(https://nareshdj.com/static/media/dhana.296f87d12dd68ec5f735.png);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(117,76,76,.19);
+    height: 60vh;
+    transition: all .2s ease;
+    width: 100%;
+}
+.p-6{
+    padding-left: 15px;
+}
+.reach{
+    font-size: 20px;
+}
+.reach-me-on{
+        justify-content: space-evenly;
+        list-style: none;
+        font-family: Oswald, sans-serif;
+        color: white;
+        opacity: 0.09;
+        font-size: 30px;
+        padding-bottom: 60px;
+
+}
+.maill{
+    padding-right: 100px;
+}
+h1 {
+    font-size: 5em;
+    color: white !important;
+  }
+  
+  span {
+    border-right: .05em solid;
+    animation: caret 1s steps(1) infinite;
+  }
+  
+  @keyframes caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+.mini-cardd{
+    min-width: 332px;
+    min-height: 350px;
+    box-shadow: -2rem 0 3rem -2rem #000;
+    border: 1px solid white;
+    border-radius: 20px;
+    background: linear-gradient(85deg,#434343,#262626);
+    margin-left: -112px;
+    transition: .2s;   
+}
+.mini.card:hover{
+    transform: translate(-.5rem,-1rem) rotate(3deg);
+}
+.mini-cardd:hover{
+    transform: translate(-.5rem,-1rem) rotate(3deg);
+}
+
+
