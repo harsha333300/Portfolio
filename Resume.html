@@ -16,50 +16,62 @@
 </head>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function (event) {
-        // array with texts to type in typewriter
-        var dataText = ["Front End Developer", "Web Developer", "FreeLancer"];
+    var TxtType = function (el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
 
-        // type one text in the typwriter
-        // keeps calling itself until the text is finished
-        function typeWriter(text, i, fnCallback) {
-            // check if text isn't finished yet
+    TxtType.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
 
-            if (i < (text.length)) {
-                // add next character to h1
-                document.querySelector("h1").innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
-
-                // wait for a while and call this function again for next character
-                setTimeout(function () {
-                    typeWriter(text, i + 1, fnCallback)
-                }, 100);
-            }
-
-            // text finished, call callback if there is a callback function
-            else if (typeof fnCallback == 'function') {
-                // call callback after timeout
-                setTimeout(fnCallback, 700);
-            }
-        }
-        // start a typewriter animation for a text in the dataText array
-        function StartTextAnimation(i) {
-            if (typeof dataText[i] == 'undefined') {
-                setTimeout(function () {
-                    StartTextAnimation(0);
-                }, 20000);
-            }
-
-            if (i < dataText[i].length) {
-
-                typeWriter(dataText[i], 0, function () {
-
-                    StartTextAnimation(i + 1);
-                });
-            }
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        StartTextAnimation(0);
-    });
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+
+        setTimeout(function () {
+            that.tick();
+        }, delta);
+    };
+
+    window.onload = function () {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i = 0; i < elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+                new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
 </script>
 
 <body>
@@ -95,7 +107,10 @@
             </div>
             <div class="col-md-6 offset-md-5 p-5">
                 <h2 class="about-heading">I'm a</h2>
-                <h1></h1>
+                <h1><a href="" class="typewrite" data-period="2000"
+                        data-type='[ "Front End Developer", "Web Developer", "Freelancer" ]'>
+                        <span class="wrap"></span>
+                    </a></h1>
                 <p class="font-dec">Hi Harsha B S here.I'm currently living and working in Bangalore.I specialize in
                     designing complex websites and leading front-end developers to bring the designs and ideas to
                     life.Hey are looking for front end developer to build your brand and grow
@@ -106,7 +121,8 @@
             <p class="headingg">Services</p>
             <p class="paragraph">My interests are in Front End Engineering, and I love to create beautiful and
                 performant products with
-                delightful user experiences. Over six months of experience in building products for clients with a strong
+                delightful user experiences. Over six months of experience in building products for clients with a
+                strong
                 knowledge in
                 HTML<img
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADtklEQVR4nO3ZW2xMQRgH8L+oJogHxAPxghc8iMsDbyWoiHQ7s7UlrkFtUQ0pIUKIS0IqEtdQQVwiLhFEJG4JD3WL4EG0IajbnnO2u92DaovSjmxX9HycadeZYRPZL5lkk8k5Z357vpn5dhZIRzrS8f+GwVFncohUNoPho3cAw4uUAzieqwDupBpgctz2DDA5zqsOQBT/eWuYR+5xTgWwPxWAujnkHmWeAQbHxlQAameRSbxBBVCcCsD7GQSw2DPAYshPBcCe1nq9xRHwDsjFaNnArBndhW3b7bakYtNAAohOdTyLIcszwGQYJP12J2cIOxbTA1jViwCqA44U8mOgZ0CIoWdb6WFbIXVAc7MQSzIIwMprfcabAHp4Bgigg8HQKAPEqirVAfU2GXxzEZnAjfExQCVMDkMKqLhLBmsV9lOexN8WkvwPKQ2+BcDwUAq4f5UCSoYrAxoLCeCBDsBlGaCm/AwBhNeOUwZ8mk9S6JIywGA4IgVcOUQA1aX5yoD6uQ4Ax2EdgK0yQPT8dvVJfGM7AXycTQClygCTY7kUcGKDOuDSegL4MNPxDD+W6QDMkgEih5arA86WEMC76QQwUxlg+DFBCtgdVAccn0sANY4ywmDIVgaE8jDMSxEnncT3jlHAAT/pj+S3XhvKxVBlwGsf+mgFPL5IAbvGkv6wo4yIcPRWBogsZBgMTW6Dq16dRdIlevNc+4CqWxRQOoL0O1agZhFEJ+gIk6PGDRBeMoQAah6Vtw8IV1LA+gE/+5oWkWuj0BUGR6UbwJrXlwBioZcivC5bWIHM3wFLM4XYN0mIhnfSUvrrAvIGKnQCbrjm+NQuritP7G2ViF7YJcJrxgixJ1uIOwcTVadbLO30E/A5SFag6zoBp2ST1I5Y3pfRL3UkvRoKSCF3UhvAZNgp3Y3PbmtJnT8GxFOpfK/8OIVhh07AmjaXy7yOIrxilIic3ixir57KAfE0undUiLKcxJwo/uU4xVEHmQyrtQEMhvlJr/0OjP3qiRD1sTYHLWTHKRwFOgG5njayyRm//d5N9jglxOHTBghzjNK2E8t+Si6CiDhOIywfRuoD+NH/bwAaCxP1f3SKyx6Tg37aANZ4dNUBaCqC+FSQKJmdNY/ptkmOR1fojJa3wBA0OE4bHLXJAr4EE4e1UUeV6doYGkyGawbHStOHwfib8SaAziE/xpkMW0yO+17fjpH4B6gsfv4Z9aEbUhVJv51/+S2rvB2TYeKP3ftZS4t/ZpgY7/N843SkIx3/Z3wHrTGmPWk4PzUAAAAASUVORK5CYII="
@@ -144,11 +160,20 @@
                 <p class="project-title">Projects!</p>
             </div>
             <div class="mini-card">
-            <article class="mini-cardd"></article>
-            <article class="mini-cardd"></article>
-            <article class="mini-cardd"></article>
-            <article class="mini-cardd"></article>
-        </div>
+                <article class="mini-cardd"><p class="project-heading">Oberoihotels</p><a href="https://www.oberoihotels.com/"><img
+                            src="https://www.oberoihotels.com/-/media/oberoi-hotels/home-detail/madina.png?w=906&hash=44698cc5778ed1204a1221a23e5f456b"
+                            alt="" class="freelance-image"></a></article>
+                <article class="mini-cardd"><p class="project-heading">Teachglobal</p><a href="https://www.teachglobal.com/"><img
+                            src="https://www.teachglobal.com/images/UNS/shivaji.jpg" alt="" class="freelance-image"></a>
+                </article>
+                <article class="mini-cardd"><p class="project-heading" >Bestgift</p><a href="https://www.teachglobal.com/"><img
+                            src="Screenshot (18).png"
+                            alt="" class="freelance-image"></a></article>
+                <article class="mini-cardd"><p class="project-heading">Finalsite</p><a href="https://www.finalsite.com/"><img
+                            src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_5/v1684177532/finalsite/gohrqv5rv2fh6d4jqafa/Homepage-Hero-May-2023_v1.png"
+                            alt="" class="freelance-image"></a></article>
+
+            </div>
         </div>
         <footer>
             <section>
@@ -156,23 +181,21 @@
                     <p class="contact-bg-title">Contact</p>
                 </div>
                 <div class="contact-text">
-                    <p class="find">Find me on</p>
+                    <p class="find">Get me on</p>
                     <ul class="contact-content">
-                        <li>
-                            <a href="https://www.linkedin.com/in/harsha-b-s-956769232/?jobid=1234"
-                                class="Linkedin">LinkedIn</a>
-                        </li>
-                        <li>
+                        <li class="offset-md-2">
+                            <div>
+                                <a href="https://www.linkedin.com/in/harsha-b-s-956769232/?jobid=1234"
+                                    class="Linkedin">LinkedIn</a>
+                            </div>
                             <a href="https://api.whatsapp.com/send/?phone=%2B919380704201&text=Hey%21&type=phone_number&app_absent=0"
                                 class="Whatsapp">Whatsapp</a>
-                        </li>
-                    </ul>
-                    <p class="reach">Reach me on</p>
-                    <ul class="reach-me-on">
-                        <li>
-                            <p class="mail">harshabsmandya@gmail.com</p>
+
                         </li>
                         <li>
+                            <div>
+                                <p class="maill">harshabsmandya@gmail.com</p>
+                            </div>
                             <p class="maill">+91 9380704201</p>
                         </li>
                     </ul>
