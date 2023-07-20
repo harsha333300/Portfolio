@@ -201,6 +201,7 @@ img {
 
 .find {
     font-size: 20px;
+    padding-bottom: 40px;
 }
 
 .project-title {
@@ -235,6 +236,13 @@ img {
 .project-image {
     width: 261px;
     height: 200px;
+}
+
+.project-heading{
+    color: wheat;
+    opacity: 0.5;
+    text-align: center;
+    padding: 5px;
 }
 
 .image-custom {
