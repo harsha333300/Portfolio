@@ -58,6 +58,7 @@ section {
 img {
     width: 450px;
     height: 530px;
+    border-radius: 10px;
 }
 
 .rounded {
@@ -158,6 +159,7 @@ button {
     background-color: #0f0f0f;
     color: #fff;
     font-size: small !important;
+    border-radius: 5px;
 }
 
 .headingg {
@@ -201,9 +203,6 @@ button {
     color: #fff;
 }
 
-img {
-    border-radius: 20px;
-}
 
 .find {
     font-size: 20px;
