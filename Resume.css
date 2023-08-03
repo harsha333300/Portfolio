@@ -10,11 +10,11 @@ nav {
     justify-content: end;
 }
 
-ul {
-    display: flex;
-}
 button{
-    border-radius: 5px;
+    border-radius: 5px !important;
+}
+li{
+    display: inline-flex;
 }
 
 a {
@@ -64,6 +64,7 @@ img {
 .rounded {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
     overflow: scroll;
+    transform: translateX(130px);
 }
 
 .align {
@@ -89,21 +90,23 @@ img {
     list-style: none;
     font-family: Oswald, sans-serif;
     color: wheat;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 .Linkedin {
-    font-size: 40px;
+    font-size: 60px;
     opacity: 0.075;
     color: wheat;
 }
 
 .Whatsapp {
-    font-size: 40px;
+    font-size: 60px;
     opacity: 0.075;
     color: wheat
 }
-
+.caro{
+    padding-right: 100px;
+}
 .Email {
     font-size: 30px;
     opacity: 0.075;
@@ -206,7 +209,6 @@ button {
 
 .find {
     font-size: 20px;
-    padding-bottom: 40px;
 }
 
 .project-title {
@@ -299,10 +301,14 @@ h1 {
 
 }
 
-.mini-card {
-    display: flex;
-    padding-left: 116px;
-}
+    .mini-card {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        padding-left: 116px;
+    }
+
+
+
 
 .mini-cardd:hover {
     transform: translate(-.5rem, -1rem) rotate(3deg);
