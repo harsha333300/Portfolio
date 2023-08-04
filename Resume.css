@@ -104,17 +104,15 @@ img {
     opacity: 0.075;
     color: wheat
 }
-.caro{
-    padding-right: 100px;
-}
+
 .Email {
-    font-size: 30px;
+    font-size: 60px;
     opacity: 0.075;
     color: wheat
 }
 
 .number {
-    font-size: 30px !important;
+    font-size: 55px;
     opacity: 0.075;
     color: wheat;
 }
@@ -145,8 +143,8 @@ a {
 }
 
 .btn-align {
-    background-color: #fd423d;
-    border: #ff8532;
+    background-color: #8d9900;
+    border: #8d9900;
     padding: 7px;
     border-radius: 5px;
     box-shadow: 0px 0px 2px #fff;
@@ -323,3 +321,15 @@ h1 {
     color: #fff;
     opacity: 2;
 }
+li{
+    display: flex;
+    justify-content: space-evenly;
+}
+.ph-no{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
