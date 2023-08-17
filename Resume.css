@@ -1,0 +1,59 @@
+img {
+    border-radius: 65px;
+    width: 130px;
+    height: 130px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.align {
+    display: flex;
+    text-align: justify;
+}
+
+.role {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.designation {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.skill {
+    display: flex;
+}
+
+header{
+    margin-top: 5px;
+}
+
+#btn{
+    padding: 2px;
+    border-radius: 15px;
+}
+
+.date{
+    display: flex;
+}
+
+#date-font{
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+#date-fontt{
+    font-size: 12px;
+    margin-top: -10px;
+}
