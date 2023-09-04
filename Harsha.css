@@ -66,6 +66,114 @@ img {
     overflow: scroll;
     transform: translateX(130px);
 }
+/* main image */
+@media only screen and (max-width: 600px) {
+    .align{
+        display: block !important;
+    }
+    .rounded{
+        transform: translateX(0px);
+        width: 350px;
+    }
+}
+@media only screen and (min-width: 600px) and (orientation:portrait) {
+    .align{
+        display: block !important;
+    }
+    .rounded{
+        transform: translateX(0px);
+        width: 500px;
+    }
+}
+@media only screen and (min-width: 768px) and (orientation:portrait) {
+    .align{
+        display: block !important;
+    }
+    .rounded{
+        transform: translateX(0px);
+        width: 735px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (orientation:portrait) {
+    .align{
+        display: block !important;   
+    }
+    .rounded{
+        transform: translateX(0px);
+        width: 750px;
+    }
+}
+
+/* project */
+@media only screen and (max-width:600px) {
+    .mini-card{
+        display: block !important;
+    }
+    
+}
+
+@media only screen and (min-width:600px) and (orientation:portrait) {
+    .mini-card{
+        display: block !important;
+    }
+    
+}
+
+@media only screen and (max-width:768px) and (orientation:portrait) {
+    .mini-card{
+        display: block !important;
+    }
+    
+}
+
+@media only screen and (max-width:992px) and (orientation:portrait) {
+    .mini-card{
+        display: block !important;
+    }
+    
+}
+
+/* project-image */
+
+@media only screen and (max-width:600px) {
+    .project-section{
+        display: block !important;
+        border: none !important;
+        
+    }
+    
+}
+
+
+@media only screen and (min-width:600px) and (orientation:portrait) {
+    .project-section{
+        display: block !important;
+        border: none !important;
+        
+    }
+    
+}
+
+@media only screen and (max-width:768px) and (orientation:portrait) {
+    .project-section{
+        display: block !important;
+        border: none !important;
+    }
+    
+}
+
+@media only screen and (max-width:992px) and (orientation:portrait) {
+    .project-section{
+        display: block !important;
+        border: none !important;
+        flex-direction: row;
+    }
+    
+}
+
+
+
 
 .align {
     display: flex;
