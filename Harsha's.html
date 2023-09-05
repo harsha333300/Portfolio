@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="Harsha.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +19,7 @@
     <title>Harsha's Portfolio</title>
 </head>
 
-<script>
+<!-- <script>
     window.onload = function () {
         var elements = document.getElementsByClassName('typewrite');
         for (var i = 0; i < elements.length; i++) {
@@ -33,32 +35,32 @@
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
     };
-    // function gmail() {
-    //     var x = document.getElementById("mydiv");
-    //     if (x.style.display === "none") {
-    //         x.style.display = "block";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
-    // function number() {
-    //     var y = document.getElementById("num");
-    //     if (y.style.display === "none") {
-    //         y.style.display = "block";
-    //     } else {
-    //         y.style.display = "none";
-    //     }
-    // } 
-    function gmail(){
-        document.getElementById('demo1').innerHTML='harshabsmandya@gmail.com';
+    function gmail() {
+        document.getElementById('demo1').innerHTML = 'harshabsmandya@gmail.com';
     }
-    function number(){
-        document.getElementById('demo').innerHTML='9380704201';
+    function number() {
+        document.getElementById('demo').innerHTML = '9380704201';
     }
-</script>
+</script> -->
+
 
 <script>
-    var TxtType = function(el, toRotate, period) {
+    $(document).ready(function () {
+        $("#demo1").click(function () {
+            $("#mygmail").toggle();
+        });
+    });
+
+
+    $(document).ready(function () {
+        $("#demo").click(function () {
+            $("#num").toggle();
+        });
+    });
+
+</script>
+<script>
+    var TxtType = function (el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
         this.loopNum = 0;
@@ -68,17 +70,17 @@
         this.isDeleting = false;
     };
 
-    TxtType.prototype.tick = function() {
+    TxtType.prototype.tick = function () {
         var i = this.loopNum % this.toRotate.length;
         var fullTxt = this.toRotate[i];
 
         if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
         var that = this;
         var delta = 200 - Math.random() * 100;
@@ -86,26 +88,26 @@
         if (this.isDeleting) { delta /= 2; }
 
         if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
+            delta = this.period;
+            this.isDeleting = true;
         } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
         }
 
-        setTimeout(function() {
-        that.tick();
+        setTimeout(function () {
+            that.tick();
         }, delta);
     };
 
-    window.onload = function() {
+    window.onload = function () {
         var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
+        for (var i = 0; i < elements.length; i++) {
             var toRotate = elements[i].getAttribute('data-type');
             var period = elements[i].getAttribute('data-period');
             if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
+                new TxtType(elements[i], JSON.parse(toRotate), period);
             }
         }
         // INJECT CSS
@@ -137,7 +139,7 @@
                         <button class="time-btn">Part Time</button>
                         <button class="btn-align">Freelancer</button>
                     </div>
-                    <div class="col-md-4 offset-md-0 ">
+                    <div class="col-md-6">
                         <img src="About-me---image.jpeg" alt="" class="rounded">
                     </div>
                 </div>
@@ -177,35 +179,34 @@
                 JDBC <i class="fa-brands fa-java fa-fade fa-sm" style="color: #fafafa;"></i></i>.
             </p>
         </div>
-        <div class="project-section">
-            <div class="project-height">
-                <img class="project-image"
-                    src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg"
+        <div class="content-container">
+            <div class="container-1">
+                <img class="project-image" src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg"
                     alt="">
-                <p class="project-title">Projects!</p>
+                <!-- <p class="project-title">Projects!</p> -->
             </div>
-            <div class="mini-card col-md-2 ">
-                <article class="mini-cardd ">
-                    <p class="project-heading">Oberoihotels
-                    </p><a href="https://www.oberoihotels.com/" target="_blank"><img
-                            src="https://www.oberoihotels.com/-/media/oberoi-hotels/home-detail/madina.png?w=906&hash=44698cc5778ed1204a1221a23e5f456b"
-                            alt="" class="freelance-image"></a>
-                </article>
-                <article class="mini-cardd col-md-2">
-                    <p class="project-heading">Techglobal</p><a href="https://www.teachglobal.com/" target="_blank"><img
-                            src="https://www.teachglobal.com/images/UNS/shivaji.jpg" alt="" class="freelance-image"></a>
-                </article>
-                <article class="mini-cardd col-md-2">
-                    <p class="project-heading">Finalsite</p><a href="https://www.finalsite.com/" target="_blank"><img
-                            src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_2/v1663250610/finalsite/bmpcfvnfqlpvr8laceh0/Press-Release-Post-Graphic.jpg"
-                            alt="" class="freelance-image"></a>
-                </article>
-                <article class="mini-cardd col-md-2">
-                    <p class="project-heading">Bestgift</p><a href="https://www.bestgift.in/" target="_blank"><img
-                            src="https://blog.wilton.com/wp-content/uploads/sites/2/2018/05/tassel-hat-cake.jpg" alt=""
-                            class="freelance-image"></a>
-                </article>
+            <div class="container-2">
+                <p class="project-heading">Oberoihotels
+                </p><a href="https://www.oberoihotels.com/" target="_blank"><img
+                        src="https://www.oberoihotels.com/-/media/oberoi-hotels/home-detail/madina.png?w=906&hash=44698cc5778ed1204a1221a23e5f456b"
+                        alt="" class="freelance-image"></a>
             </div>
+            <div class="container-3">
+                <p class="project-heading">Techglobal</p><a href="https://www.teachglobal.com/" target="_blank"><img
+                        src="https://www.teachglobal.com/images/UNS/shivaji.jpg" alt="" class="freelance-image"></a>
+            </div>
+            <div class="container-4">
+                <p class="project-heading">Finalsite</p><a href="https://www.finalsite.com/" target="_blank"><img
+                        src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_2/v1663250610/finalsite/bmpcfvnfqlpvr8laceh0/Press-Release-Post-Graphic.jpg"
+                        alt="" class="freelance-image"></a>
+            </div>
+            <div class="container-5">
+                <p class="project-heading">Bestgift</p><a href="https://www.bestgift.in/" target="_blank"><img
+                        src="https://blog.wilton.com/wp-content/uploads/sites/2/2018/05/tassel-hat-cake.jpg" alt=""
+                        class="freelance-image"></a>
+            </div>
+
+
         </div>
         <footer>
             <section>
@@ -222,18 +223,15 @@
                             <a href="https://api.whatsapp.com/send/?phone=%2B919380704201&text=Hey%21&type=phone_number&app_absent=0"
                                 class="Whatsapp" target="_blank"><i class="fa-brands fa-whatsapp fa-xs"
                                     style="color: #f7f7f8;"></i></a>
-                            <!-- <a href="Gmail.html" class="Email" target="_blank"> -->
-                            <i id="demo1" onclick="gmail()" class="fa-solid fa-envelope fa-xs"
-                                style="color: #f5f5f5;"></i>
-                            <!-- <div id="mydiv">
+                            <i id="demo1" class="fa-solid fa-envelope fa-xs" style="color: #f5f5f5;"></i>
+                            <div id="mygmail" class="emailId">
                                 harshabsmandya@gmail.com
-                            </div> -->
-                            <!-- </a> -->
-                            <i onclick="number()" id="demo" class="fa-solid fa-phone fa-2xs"
-                                style="color: #f7f7f8;"></i>
-                            <!-- <div id="num">
+                            </div>
+
+                            <i id="demo" class="fa-solid fa-phone fa-2xs" style="color: #f7f7f8;"></i>
+                            <div id="num" class="emailId">
                                 9380704201
-                            </div> -->
+                            </div>
                         </li>
                     </ul>
             </section>
